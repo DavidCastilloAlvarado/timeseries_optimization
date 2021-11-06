@@ -1,10 +1,15 @@
+import re
+import plotly.express as px
+
 
 def hellomodule():
     print("Hello from module")
 
 
 def homogenizar_str(text):
+    text = text.lower()
     text = str(text).rstrip().lstrip()
+    text = text.replace(" ", "")
     pattern = r'(?![a-zA-Z0-9_ ].).'
     text = re.sub(pattern, '', text)
     return text
