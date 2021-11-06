@@ -7,7 +7,7 @@ def hellomodule():
 
 
 def homogenizar_str(text):
-    text = text.lower()
+    text = str(text).lower()
     text = str(text).rstrip().lstrip()
     text = text.replace(" ", "")
     pattern = r'(?![a-zA-Z0-9_ ].).'
