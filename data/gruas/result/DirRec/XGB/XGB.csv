@@ -1,0 +1,9 @@
+idArticulo,hyper,r2,model
+filtrodepresio,"{'n_lags': 2, 'max_depth': 1, 'random_state': 2710}",-0.23218147893633656,XGB
+bateriascanrec,"{'n_lags': 2, 'max_depth': 5, 'random_state': 106}",-0.062079076051277826,XGB
+filtrodeair,"{'n_lags': 2, 'max_depth': 4, 'random_state': 1884}",-0.2217881256415141,XGB
+arandel,"{'n_lags': 4, 'max_depth': 6, 'random_state': 1710}",-0.8878050261787813,XGB
+pern,"{'n_lags': 2, 'max_depth': 1, 'random_state': 2710}",-0.10289783954428873,XGB
+soport,"{'n_lags': 2, 'max_depth': 5, 'random_state': 106}",-0.0006027112562912885,XGB
+filtroderetorn,"{'n_lags': 1, 'max_depth': 1, 'random_state': 885}",-0.5921093545314005,XGB
+tuerc,"{'n_lags': 2, 'max_depth': 4, 'random_state': 508}",-0.0427426080589703,XGB
