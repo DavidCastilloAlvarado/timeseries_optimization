@@ -11,6 +11,7 @@ from sklearn.metrics import mean_squared_error
 from modulos.arima.gruas.general import show_results_r2, arima_forecasting, total_forecasting, show_optimizer_results
 from sklearn.linear_model import LinearRegression
 from modulos.LR.gruas.generals import make_lags
+from sklearn.model_selection import cross_val_score
 
 
 def total_forecasting_LR(ts, n_lags):
@@ -34,6 +35,18 @@ def LR_forecasting(ts, n_lags):
     model = LinearRegression()
     model.fit(X, y)
     return model, X, y
+
+
+def LR_score_cv(ts, n_lags, cv=10):
+    X = make_lags(ts.copy(), n_lags)
+    y = pd.DataFrame({
+        'y': ts,
+    })
+    y, X = y.align(X, join='inner', axis=0)
+    model = LinearRegression()
+
+    scores = cross_val_score(model, X, y, cv=cv, scoring='r2')
+    return scores.mean()
 
 
 # Operaciones en multi hilo
@@ -77,9 +90,10 @@ class LROptimizer:
             r_min = 1
             r_max = 6
             n_lags = trial.suggest_int('n_lags', r_min, r_max)
-            pred = total_forecasting_LR(self.df_time[idArticulo], n_lags)
-            score = r2_score(
-                self.df_time[[idArticulo]], pred.apply(lambda x: round(x, 0)))
+            # pred = total_forecasting_LR(self.df_time[idArticulo], n_lags)
+            # score = r2_score(
+            #     self.df_time[[idArticulo]], pred.apply(lambda x: round(x, 0)))
+            score = LR_score_cv(self.df_time[idArticulo], n_lags)
             # mse = mean_squared_error(
             #     self.df_time[[idArticulo]], pred.apply(lambda x: round(x, 0)))
             return score
