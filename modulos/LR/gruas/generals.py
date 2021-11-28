@@ -4,20 +4,24 @@ import numpy as np
 from sklearn.metrics import r2_score
 from matplotlib import pyplot as plt
 from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import RobustScaler
 from sklearn.metrics import mean_absolute_percentage_error
 from statsmodels.tsa.arima.model import ARIMA
 
 
 def make_timeserie_arima(ts):
-    scaler = StandardScaler()
+    scaler = RobustScaler()
     ts = np.trim_zeros(ts)
     ts = pd.Series(scaler.fit_transform(
         pd.DataFrame(ts)).flatten(), index=ts.index)
-    return ts, scaler
+    y = pd.DataFrame({
+        'y': ts,
+    })
+    return y, scaler
 
 
 def make_timeserie(ts, lags, lead_time=1):
-    scaler = StandardScaler()
+    scaler = RobustScaler()
     ts = np.trim_zeros(ts)
 
     ts = pd.Series(scaler.fit_transform(
@@ -66,15 +70,15 @@ def cross_validation_ts_mape_r2(model, X, y, test_size=.2):
 
 def cross_validation_ts_mape_r2_ARIMA(model, order, ts, test_size=.2):
     forecasts = []
+    # ts = pd.DataFrame(ts)
     for i_last in range(-int(test_size*len(ts)), 0):
         ts_train = ts.iloc[:i_last]
         ts_test = pd.DataFrame(ts.iloc[i_last]).T
         model = ARIMA(ts_train, order=order)
         predict = model.fit()
-        pred = predict.predict()
+        pred = predict.forecast()
         forecasts.append(pred)
-
     mape = mean_absolute_percentage_error(
         ts.iloc[-int(test_size*len(ts)):], forecasts)  # [val +1 for val in forecasts])
-    r2_ = r2_score(y.iloc[-int(test_size*len(ts)):], forecasts)
+    r2_ = r2_score(ts.iloc[-int(test_size*len(ts)):], forecasts)
     return mape, r2_

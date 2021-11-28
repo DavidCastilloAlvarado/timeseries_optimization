@@ -1,9 +1,0 @@
-idArticulo,hyper,r2,model
-arandel,"{'ar': 5, 'ii': 0, 'ma': 4}",0.1806697169696725,ARIMA
-filtrodepresio,"{'ar': 5, 'ii': 1, 'ma': 5}",0.48957311089303235,ARIMA
-bateriascanrec,"{'ar': 6, 'ii': 0, 'ma': 5}",0.28301886792452835,ARIMA
-filtrodeair,"{'ar': 5, 'ii': 2, 'ma': 5}",0.6360887096774194,ARIMA
-filtroderetorn,"{'ar': 4, 'ii': 0, 'ma': 5}",0.4385744985673352,ARIMA
-pern,"{'ar': 6, 'ii': 0, 'ma': 6}",0.2853494311585789,ARIMA
-tuerc,"{'ar': 5, 'ii': 0, 'ma': 6}",0.2872850030175016,ARIMA
-soport,"{'ar': 4, 'ii': 0, 'ma': 6}",0.23422897196261694,ARIMA
