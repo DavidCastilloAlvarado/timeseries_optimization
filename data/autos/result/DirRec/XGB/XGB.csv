@@ -1,50 +1,51 @@
-idArticulo,hyper,r2,model
-594.0,"{'n_lags': 5, 'max_depth': 1, 'random_state': 365}",-0.5409432654115597,XGB
-1224.0,"{'n_lags': 1, 'max_depth': 1, 'random_state': 263}",-0.6158371099586797,XGB
-551.0,"{'n_lags': 5, 'max_depth': 6, 'random_state': 449}",-1.8589360452328503,XGB
-1208.0,"{'n_lags': 4, 'max_depth': 4, 'random_state': 2861}",-2.4862331163548497,XGB
-1627.0,"{'n_lags': 1, 'max_depth': 1, 'random_state': 2980}",-0.18725428706221717,XGB
-3745.0,"{'n_lags': 3, 'max_depth': 1, 'random_state': 1672}",-3.55022196170854,XGB
-3883.0,"{'n_lags': 5, 'max_depth': 4, 'random_state': 2039}",-1.6876434450483586,XGB
-3882.0,"{'n_lags': 3, 'max_depth': 5, 'random_state': 1966}",-1.3094722508658883,XGB
-5579.0,"{'n_lags': 2, 'max_depth': 1, 'random_state': 2710}",-19.010703533471172,XGB
-4827.0,"{'n_lags': 4, 'max_depth': 1, 'random_state': 2861}",-0.1389871627698501,XGB
-4070.0,"{'n_lags': 1, 'max_depth': 1, 'random_state': 260}",-3.1385348975419687,XGB
-5389.0,"{'n_lags': 4, 'max_depth': 3, 'random_state': 2011}",-1.7862362414029023,XGB
-6833.0,"{'n_lags': 2, 'max_depth': 1, 'random_state': 2710}",-2.542920064106377,XGB
-7799.0,"{'n_lags': 1, 'max_depth': 1, 'random_state': 1441}",-2.8642796016457557,XGB
-7798.0,"{'n_lags': 3, 'max_depth': 6, 'random_state': 429}",-3.1635902560118456,XGB
-7801.0,"{'n_lags': 6, 'max_depth': 3, 'random_state': 1802}",-4.234166362742879,XGB
-9950.0,"{'n_lags': 2, 'max_depth': 1, 'random_state': 2710}",-1.2649511101651927,XGB
-9776.0,"{'n_lags': 1, 'max_depth': 1, 'random_state': 918}",-0.18370257988456473,XGB
-10702.0,"{'n_lags': 6, 'max_depth': 3, 'random_state': 1802}",-4.977718793569993,XGB
-10927.0,"{'n_lags': 2, 'max_depth': 6, 'random_state': 2166}",-3.5271286294254844,XGB
-10964.0,"{'n_lags': 1, 'max_depth': 1, 'random_state': 1236}",-1.6634549692446665,XGB
-11397.0,"{'n_lags': 6, 'max_depth': 1, 'random_state': 1582}",-1.6597314711806104,XGB
-11395.0,"{'n_lags': 1, 'max_depth': 1, 'random_state': 1648}",-1.6638785914157446,XGB
-10960.0,"{'n_lags': 4, 'max_depth': 2, 'random_state': 2080}",-4.290245733070882,XGB
-14606.0,"{'n_lags': 3, 'max_depth': 1, 'random_state': 1672}",-3.697290931327614,XGB
-11509.0,"{'n_lags': 1, 'max_depth': 2, 'random_state': 2096}",-3.5815199406538865,XGB
-11523.0,"{'n_lags': 3, 'max_depth': 6, 'random_state': 2914}",-1.6022360376498863,XGB
-11807.0,"{'n_lags': 3, 'max_depth': 5, 'random_state': 1966}",-0.15994996856774557,XGB
-14708.0,"{'n_lags': 5, 'max_depth': 2, 'random_state': 2327}",-1.6070504304857596,XGB
-16404.0,"{'n_lags': 1, 'max_depth': 1, 'random_state': 2764}",-0.21272135612587167,XGB
-14709.0,"{'n_lags': 1, 'max_depth': 2, 'random_state': 901}",-4.568014285737486,XGB
-17413.0,"{'n_lags': 6, 'max_depth': 3, 'random_state': 1802}",-3.1655381012393367,XGB
-17804.0,"{'n_lags': 1, 'max_depth': 1, 'random_state': 1213}",-2.211762378489501,XGB
-17750.0,"{'n_lags': 1, 'max_depth': 1, 'random_state': 2835}",-1.520706351563361,XGB
-17414.0,"{'n_lags': 3, 'max_depth': 5, 'random_state': 386}",-0.7395260361497504,XGB
-17779.0,"{'n_lags': 4, 'max_depth': 3, 'random_state': 993}",-3.338123761433093,XGB
-20301.0,"{'n_lags': 1, 'max_depth': 1, 'random_state': 2621}",-1.2161373827972541,XGB
-19571.0,"{'n_lags': 4, 'max_depth': 5, 'random_state': 2538}",-1.3000646863177479,XGB
-20263.0,"{'n_lags': 5, 'max_depth': 4, 'random_state': 1794}",-3.4778853223359283,XGB
-19574.0,"{'n_lags': 2, 'max_depth': 6, 'random_state': 2166}",-0.11995887611030927,XGB
-20310.0,"{'n_lags': 3, 'max_depth': 1, 'random_state': 1672}",-4.326978793138505,XGB
-20305.0,"{'n_lags': 6, 'max_depth': 1, 'random_state': 104}",-1.9617497503640546,XGB
-20697.0,"{'n_lags': 2, 'max_depth': 6, 'random_state': 2166}",-1.793309784302339,XGB
-20309.0,"{'n_lags': 4, 'max_depth': 4, 'random_state': 2861}",-1.2746241260201636,XGB
-20769.0,"{'n_lags': 5, 'max_depth': 1, 'random_state': 459}",-1.9784207178628592,XGB
-26158.0,"{'n_lags': 1, 'max_depth': 1, 'random_state': 736}",-2.7979886409871684,XGB
-21577.0,"{'n_lags': 5, 'max_depth': 1, 'random_state': 683}",-3.2333453481504946,XGB
-23900.0,"{'n_lags': 1, 'max_depth': 1, 'random_state': 2133}",-2.3541190224901802,XGB
-26170.0,"{'n_lags': 6, 'max_depth': 2, 'random_state': 1719}",-0.7713699666169231,XGB
+idArticulo,hyper,r2_test,mape_test,model
+594.0,"{'n_lags': 5, 'max_depth': 5, 'random_state': 417, 'gamma': 0.5273386316058112, 'n_estimators': 2}",-0.21755759949497344,1.5089567555399532,XGB
+551.0,"{'n_lags': 6, 'max_depth': 3, 'random_state': 1269, 'gamma': 0.11202098571609506, 'n_estimators': 6}",-0.16110813095345367,4.499720915389187,XGB
+963.0,"{'n_lags': 5, 'max_depth': 5, 'random_state': 998, 'gamma': 0.35412744959372916, 'n_estimators': 3}",-0.5857667402598279,4.703949673154391,XGB
+1208.0,"{'n_lags': 4, 'max_depth': 4, 'random_state': 1649, 'gamma': 0.705322165760879, 'n_estimators': 10}",-0.46058751902636685,1.2336973951558199,XGB
+1224.0,"{'n_lags': 3, 'max_depth': 2, 'random_state': 588, 'gamma': 0.8517473773706596, 'n_estimators': 2}",0.06698172883908504,36874341056512.82,XGB
+1627.0,"{'n_lags': 4, 'max_depth': 3, 'random_state': 434, 'gamma': 0.491712161978733, 'n_estimators': 10}",-0.18372909285891126,1.359066079832174,XGB
+3090.0,"{'n_lags': 3, 'max_depth': 2, 'random_state': 2474, 'gamma': 0.2716276559701581, 'n_estimators': 3}",-0.057277877755459894,1.0349867181364611,XGB
+3745.0,"{'n_lags': 3, 'max_depth': 6, 'random_state': 824, 'gamma': 0.8901433062881957, 'n_estimators': 10}",-0.5604192712307716,3.177877110853358,XGB
+3883.0,"{'n_lags': 4, 'max_depth': 5, 'random_state': 1050, 'gamma': 0.8821091901412093, 'n_estimators': 1}",-0.537337576970564,1.302453408865677,XGB
+3882.0,"{'n_lags': 3, 'max_depth': 5, 'random_state': 2424, 'gamma': 0.7925890784103926, 'n_estimators': 9}",-3.108636504613292,1.07788511585374,XGB
+3885.0,"{'n_lags': 5, 'max_depth': 2, 'random_state': 527, 'gamma': 0.13184507726006622, 'n_estimators': 4}",-0.6584075117228556,0.7945318663785419,XGB
+4070.0,"{'n_lags': 2, 'max_depth': 3, 'random_state': 1364, 'gamma': 0.8110022974171307, 'n_estimators': 5}",-0.19019242285826987,1.112757537836186,XGB
+4765.0,"{'n_lags': 2, 'max_depth': 4, 'random_state': 2478, 'gamma': 0.6001115700124984, 'n_estimators': 3}",-1.3566324284366882,2.0003210160849276,XGB
+4827.0,"{'n_lags': 3, 'max_depth': 6, 'random_state': 1683, 'gamma': 0.36083751859076363, 'n_estimators': 10}",-16.7679502291025,0.6198223650030572,XGB
+5579.0,"{'n_lags': 6, 'max_depth': 6, 'random_state': 2863, 'gamma': 0.346628326188032, 'n_estimators': 4}",-2.469558380184691,1.9804924333931466,XGB
+5389.0,"{'n_lags': 2, 'max_depth': 5, 'random_state': 631, 'gamma': 0.3101028403854979, 'n_estimators': 10}",-9.712557557755362,2.853589980249022,XGB
+7798.0,"{'n_lags': 6, 'max_depth': 3, 'random_state': 1794, 'gamma': 0.6549007954883174, 'n_estimators': 6}",-0.9952339971640918,1.6684458832239042,XGB
+7799.0,"{'n_lags': 2, 'max_depth': 4, 'random_state': 2233, 'gamma': 0.11056392441623321, 'n_estimators': 9}",-1.6456045311315726,2.7725485546891826,XGB
+9776.0,"{'n_lags': 3, 'max_depth': 2, 'random_state': 2279, 'gamma': 0.45170622588271264, 'n_estimators': 8}",0.14080022044950058,0.7808399495315389,XGB
+7801.0,"{'n_lags': 5, 'max_depth': 5, 'random_state': 1924, 'gamma': 0.5726747969079181, 'n_estimators': 4}",-2.311650683387579,2.5819952567786926,XGB
+10702.0,"{'n_lags': 3, 'max_depth': 2, 'random_state': 2894, 'gamma': 0.0495536936834719, 'n_estimators': 9}",-1.931131614420929,1.5241456995568479,XGB
+9950.0,"{'n_lags': 4, 'max_depth': 5, 'random_state': 2816, 'gamma': 0.8178843689191072, 'n_estimators': 10}",-0.744907188269798,1.5143233757363666,XGB
+10960.0,"{'n_lags': 4, 'max_depth': 4, 'random_state': 1595, 'gamma': 0.027951546643060522, 'n_estimators': 9}",-0.943085965668907,2.758448355510155,XGB
+10927.0,"{'n_lags': 3, 'max_depth': 6, 'random_state': 2686, 'gamma': 0.11650411386456691, 'n_estimators': 10}",-7.4716605019829,9.663879358326982,XGB
+11395.0,"{'n_lags': 3, 'max_depth': 6, 'random_state': 2457, 'gamma': 0.26380534550314616, 'n_estimators': 4}",-2.15414840529042,2.1575796995863934,XGB
+10964.0,"{'n_lags': 2, 'max_depth': 4, 'random_state': 2878, 'gamma': 0.8988036741443237, 'n_estimators': 10}",-0.6383592805064435,1.3229943223501874,XGB
+11397.0,"{'n_lags': 6, 'max_depth': 2, 'random_state': 1200, 'gamma': 0.26657180108036727, 'n_estimators': 4}",-27.959331191393293,0.8287309010631833,XGB
+11509.0,"{'n_lags': 4, 'max_depth': 4, 'random_state': 1579, 'gamma': 0.005301679321457198, 'n_estimators': 7}",-0.7178202384979149,2.2137865757958135,XGB
+11523.0,"{'n_lags': 2, 'max_depth': 5, 'random_state': 1117, 'gamma': 0.6814738402187257, 'n_estimators': 2}",-5.377062360597509,2.6026195552601563,XGB
+11807.0,"{'n_lags': 3, 'max_depth': 4, 'random_state': 158, 'gamma': 0.9987648002861386, 'n_estimators': 9}",-0.5372677966979518,11.470957683302238,XGB
+14606.0,"{'n_lags': 3, 'max_depth': 2, 'random_state': 256, 'gamma': 0.9924561504871963, 'n_estimators': 4}",-0.06422806862059294,1.044122496843157,XGB
+14709.0,"{'n_lags': 4, 'max_depth': 2, 'random_state': 463, 'gamma': 0.10922735330037657, 'n_estimators': 8}",-0.7398852646239835,3.143583239778993,XGB
+17413.0,"{'n_lags': 2, 'max_depth': 5, 'random_state': 1113, 'gamma': 0.965554492586332, 'n_estimators': 2}",-0.11964759988475415,1.197790697234507,XGB
+16404.0,"{'n_lags': 3, 'max_depth': 3, 'random_state': 1495, 'gamma': 0.17961596669964375, 'n_estimators': 7}",-0.013122591430437591,1.1086144084211071,XGB
+17414.0,"{'n_lags': 5, 'max_depth': 6, 'random_state': 1291, 'gamma': 0.5870223748530249, 'n_estimators': 1}",-0.4216435793508275,0.9599201712683696,XGB
+17750.0,"{'n_lags': 5, 'max_depth': 2, 'random_state': 120, 'gamma': 0.8789375043678358, 'n_estimators': 8}",-0.923936990133992,1.4231154995016375,XGB
+17804.0,"{'n_lags': 4, 'max_depth': 6, 'random_state': 650, 'gamma': 0.5200069488101965, 'n_estimators': 5}",-2.487679903917521,0.7785767700794763,XGB
+17779.0,"{'n_lags': 3, 'max_depth': 4, 'random_state': 1310, 'gamma': 0.8619796386386874, 'n_estimators': 10}",-0.0980839352166556,1.4932208427600564,XGB
+19571.0,"{'n_lags': 4, 'max_depth': 4, 'random_state': 159, 'gamma': 0.8586949930181612, 'n_estimators': 2}",-0.21270272171040472,1.9706552609452226,XGB
+19574.0,"{'n_lags': 2, 'max_depth': 4, 'random_state': 349, 'gamma': 0.8883359981929223, 'n_estimators': 10}",0.15991375982313516,0.6518520158461711,XGB
+20263.0,"{'n_lags': 5, 'max_depth': 6, 'random_state': 254, 'gamma': 0.8446512975388782, 'n_estimators': 8}",-0.6507990228944374,1.251417710620466,XGB
+20301.0,"{'n_lags': 5, 'max_depth': 3, 'random_state': 112, 'gamma': 0.1170774853609973, 'n_estimators': 8}",-0.09031408760046089,1.5335234872268289,XGB
+20310.0,"{'n_lags': 5, 'max_depth': 3, 'random_state': 2403, 'gamma': 0.07943424425476636, 'n_estimators': 5}",-0.17252239839183114,5.969418831385368,XGB
+20305.0,"{'n_lags': 2, 'max_depth': 4, 'random_state': 1226, 'gamma': 0.6465262813436158, 'n_estimators': 7}",-0.06902262506756451,0.8677024981757254,XGB
+20769.0,"{'n_lags': 3, 'max_depth': 2, 'random_state': 2285, 'gamma': 0.21722595801163608, 'n_estimators': 3}",-0.11581402738282431,1.2716409084960878,XGB
+20697.0,"{'n_lags': 4, 'max_depth': 3, 'random_state': 1888, 'gamma': 0.4340739009999362, 'n_estimators': 9}",-0.7704050997210261,1.1906429408578918,XGB
+23900.0,"{'n_lags': 3, 'max_depth': 5, 'random_state': 2628, 'gamma': 0.7584728255673888, 'n_estimators': 4}",-0.2650947591633883,1.1426940412103017,XGB
+21577.0,"{'n_lags': 2, 'max_depth': 5, 'random_state': 785, 'gamma': 0.8873765050048167, 'n_estimators': 10}",-3.5874101556985822,3.761778383509794,XGB
+27165.0,"{'n_lags': 4, 'max_depth': 3, 'random_state': 2574, 'gamma': 0.9148194675619976, 'n_estimators': 3}",-0.38886896085102807,0.7784142442519817,XGB
+26158.0,"{'n_lags': 5, 'max_depth': 2, 'random_state': 2000, 'gamma': 0.38323736672867326, 'n_estimators': 5}",-0.5847804551769005,1.6062819163419528,XGB
