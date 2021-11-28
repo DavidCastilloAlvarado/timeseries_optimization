@@ -27,7 +27,7 @@ def print_valores_en_fecha(data, x_label="Periodo", y_label="MoImporte", leyenda
 def print_linea_de_tiempo_producto(data, columna, height=2000):
     # df = df_clean#px.data.stocks(indexed=True)-1
     fig = px.line(data, facet_col=columna, facet_col_wrap=3,
-                  height=height, facet_row_spacing=0.03)
+                  height=height, facet_row_spacing=0.1)
     fig.show()
 
 

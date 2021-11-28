@@ -1,0 +1,9 @@
+idArticulo,hyper,r2,model
+arandel,"{'n_lags': 1, 'random_state': 2548, 'optimizer': 'SGD', 'learning_rate': 0.00041000000000000005}",-0.12719045877456664,DL
+bateriascanrec,"{'n_lags': 1, 'random_state': 2548, 'optimizer': 'SGD', 'learning_rate': 0.00041000000000000005}",-156746.99168782233,DL
+filtrodeair,"{'n_lags': 1, 'random_state': 2700, 'optimizer': 'SGD', 'learning_rate': 0.0008100000000000001}",0.17455761432647704,DL
+filtrodepresio,"{'n_lags': 1, 'random_state': 2700, 'optimizer': 'SGD', 'learning_rate': 0.0008100000000000001}",0.2566004753112793,DL
+filtroderetorn,"{'n_lags': 2, 'random_state': 2613, 'optimizer': 'SGD', 'learning_rate': 0.00051}",0.11467217206954956,DL
+pern,"{'n_lags': 1, 'random_state': 2548, 'optimizer': 'SGD', 'learning_rate': 0.00041000000000000005}",-6718.74453086853,DL
+soport,"{'n_lags': 1, 'random_state': 2548, 'optimizer': 'SGD', 'learning_rate': 0.00041000000000000005}",-0.14046356678009034,DL
+tuerc,"{'n_lags': 1, 'random_state': 2548, 'optimizer': 'SGD', 'learning_rate': 0.00041000000000000005}",-6716.394677305221,DL

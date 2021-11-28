@@ -25,28 +25,28 @@ def format_timeseries(data, index_col='Periodo', columns_id='idArticulo', value_
     return df_time
 
 
-def show_results_r2(data, forecasts, idArticulo):
+def show_results_r2(data_real, forecasts, idArticulo, score=1, score_name='r2'):
     """
     Show a graph with the results of the forecasts.
     also with the r2 score.
     return r2 score
     """
-    r2 = r2_score(data[idArticulo], forecasts)
+    # r2 = r2_score(data_real, forecasts)
     plt.figure(1, figsize=(12, 5))
     plt.rcParams.update({'font.size': 14})
-    _ = plt.plot(data[[idArticulo]], color='blue',
+    _ = plt.plot(data_real, color='blue',
                  label="real",
                  linewidth=1)
     _ = plt.plot(forecasts, color='red',
                  label="Forecast",
                  linewidth=3)
     plt.legend(loc='upper left')
-    plt.title(str(idArticulo).upper() + f" r2={round(r2,3)}")
+    plt.title(str(idArticulo).upper() + f" {score_name}={round(score,3)}")
     plt.ylabel("Ventas UND")
     plt.xlabel("Meses")
     plt.grid(True)
     plt.show(block=False)
-    return r2
+    # return r2
 
 
 def show_optimizer_results(data, idArticulo='Place your idArticulo', color='m'):
@@ -76,6 +76,7 @@ def arima_forecasting(data, ar=2, ii=1, ma=2):
     df.index = pd.DatetimeIndex(df.index).to_period('M')
     model = ARIMA(df, order=(ar, ii, ma))
     results = model.fit()
+
     return results
 
 
