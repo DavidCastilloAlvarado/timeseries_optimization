@@ -39,10 +39,10 @@ def LR_score_cv(self, ts, n_lags, cv=6):
     model = LinearRegression()
 
     # Validamos con el val 20% del total*80%
-    mape, score_r2 = cross_validation_ts_mape_r2(
+    mse, score_r2 = cross_validation_ts_mape_r2(
         model, X_train, y_train, test_size=TEST_SIZE)
 
-    return score_r2, mape
+    return score_r2, mse
 
 
 # Operaciones en multi hilo

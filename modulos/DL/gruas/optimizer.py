@@ -1,9 +1,8 @@
-
-
 from sklearn.model_selection import train_test_split
 from .custom_models import ForecastinModel, cross_val_score_dl
 import os
 import pandas as pd
+import numpy as np
 import json
 import time
 import threading
@@ -12,49 +11,48 @@ from sklearn.metrics import r2_score
 from sklearn.metrics import mean_squared_error
 from modulos.arima.gruas.general import show_results_r2, arima_forecasting, total_forecasting, show_optimizer_results
 from sklearn.tree import DecisionTreeRegressor
-from modulos.LR.gruas.generals import make_lags
+from modulos.LR.gruas.generals import make_lags, make_timeserie, cross_validation_ts_mape_r2, split_data_train
 from sklearn.model_selection import cross_val_score
 optuna.logging.disable_default_handler()
-
+TEST_SIZE = 0.1
 ######### XGBoost #############
 
 
-def DL_forecasting(ts, n_lags, random_state, learning_rate, optimizer, ):
-    X = make_lags(ts.copy(), n_lags)
-    y = pd.DataFrame({
-        'y': ts,
-    })
-    y, X = y.align(X, join='inner', axis=0)
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.3, shuffle=True)
-    model = ForecastinModel((X.iloc[0].shape[0], 1),
-                            summary=False,
-                            random_state=random_state,
-                            lr=learning_rate,
-                            optimizer=optimizer)
-    model.train_model(X_train, y_train, X_test, y_test,
-                      callback=True, verbose=0)
-    return model, X, y
+def DL_forecasting(ts, n_lags, random_state, learning_rate, optimizer, n_epochs):
+    X, y, scaler = make_timeserie(ts.copy(), n_lags)
 
-
-def DL_score_cv(ts, n_lags, random_state, learning_rate, optimizer, cv=5, epochs=100):
-    X = make_lags(ts.copy(), n_lags)
-    y = pd.DataFrame({
-        'y': ts,
-    })
-    y, X = y.align(X, join='inner', axis=0)
     hyperparameters = dict(summary=False,
                            random_state=random_state,
                            lr=learning_rate,
-                           optimizer=optimizer)
+                           optimizer=optimizer,
+                           n_epochs=n_epochs)
 
-    scores = cross_val_score_dl(
-        ForecastinModel, X, y, cv=cv, scoring='r2', epochs=epochs, hyperparameters=hyperparameters)
-    return scores.mean()
+    model = ForecastinModel((X.iloc[0].shape[0], 1), **hyperparameters)
+
+    mse, r2_score = cross_val_score_dl(
+        model, X, y, test_size=TEST_SIZE)
+
+    return model, X, y, r2_score, mse, scaler
+
+
+def DL_score_cv(ts, n_lags, random_state, learning_rate, optimizer, n_epochs):
+    X, y, scaler = make_timeserie(ts.copy(), n_lags)
+    X_train, y_train = split_data_train(X, y, test_size=TEST_SIZE)
+
+    hyperparameters = dict(summary=False,
+                           random_state=random_state,
+                           lr=learning_rate,
+                           optimizer=optimizer,
+                           n_epochs=n_epochs)
+
+    model = ForecastinModel((X.iloc[0].shape[0], 1), **hyperparameters)
+    mse, r2_score = cross_val_score_dl(
+        model, X_train, y_train, test_size=TEST_SIZE)
+    return r2_score, mse
 
 
 class DLOptimizer:
-    def __init__(self, df_time, iterations, data_path, model='xbg', subpath=None, epochs=100):
+    def __init__(self, df_time, iterations, data_path, model='dl', subpath=None):
         self.df_time = df_time
         self.results = pd.DataFrame()
         self.iterations = iterations
@@ -64,7 +62,6 @@ class DLOptimizer:
         self.DATA_PATH = data_path
         self.studies = []
         self.subpath = subpath
-        self.epochs = epochs
 
         # self.lock = threading.Lock()
     def result_path(self):
@@ -94,33 +91,40 @@ class DLOptimizer:
 
     def optuna_optimizer(self, idArticulo):
         def objective(trial):
-            r_min = 1
-            r_max = 6
+            r_min = 2
+            r_max = 12
             n_lags = trial.suggest_int('n_lags', r_min, r_max)
             random_state = trial.suggest_int('random_state', 100, 3000)
             opt = trial.suggest_categorical(
                 "optimizer", ["Adam", "SGD", "RMSprop"])
             learning_rate = trial.suggest_float(
-                'learning_rate', 1e-5, 10e-4, step=10e-5)
+                'learning_rate', 1e-5, 11e-5, step=1e-5)
+            n_epochs = trial.suggest_int('n_epochs', 100, 200, step=50)
             # pred = total_forecasting_DT(
             #     self.df_time[idArticulo], n_lags, max_depth, random_state)
             # score = r2_score(
             #     self.df_time[[idArticulo]], pred.apply(lambda x: round(x, 0)))
-            score = DL_score_cv(
-                self.df_time[idArticulo], n_lags=n_lags, random_state=random_state, epochs=self.epochs, optimizer=opt, learning_rate=learning_rate)
+            r2, mse = DL_score_cv(self.df_time[idArticulo],
+                                  n_lags=n_lags,
+                                  random_state=random_state,
+                                  n_epochs=n_epochs,
+                                  optimizer=opt,
+                                  learning_rate=learning_rate)
             # mse = mean_squared_error(
             #     self.df_time[[idArticulo]], pred.apply(lambda x: round(x, 0)))
-            return score
+            return mse
 
         study = optuna.create_study(
-            direction='maximize', sampler=optuna.samplers.TPESampler(seed=self.SEED))
+            direction='minimize', sampler=optuna.samplers.TPESampler(seed=self.SEED))
         study.optimize(objective, n_trials=self.iterations)
-        self.save_results(idArticulo, study)
         self.studies.append({'study': study, 'idArticulo': idArticulo})
+        self.save_results(idArticulo, study)
 
     def save_results(self, idArticulo, study):
+        model, X, y, score, mse, scaler = DL_forecasting(
+            self.df_time[idArticulo], **study.best_params)
         row = {'idArticulo': idArticulo, 'hyper': study.best_params,
-               'r2': study.best_value, 'model': self.model_name}
+               'r2_test': score, 'mse_test': mse, 'model': self.model_name}
         self.results = self.results.append(row, ignore_index=True)
 
     def print_results(self):
@@ -128,13 +132,15 @@ class DLOptimizer:
             self.result_path(), f'{self.model_name}.csv'))
         for opt in opts.to_dict(orient='records'):
             hyper = json.loads(opt['hyper'].replace("'", '"'))
-            model, X, y = DL_forecasting(
+            model, X, y, score, mse, scaler = DL_forecasting(
                 self.df_time[opt['idArticulo']],
                 **hyper)
             y_fit = pd.DataFrame(model.model.predict(
                 X), index=X.index, columns=y.columns)
-            r2 = show_results_r2(self.df_time, y_fit. apply(
-                lambda x: round(x, 0)), opt['idArticulo'])
+            rmse_scl = scaler.inverse_transform([[np.sqrt(mse)]])[0][0]
+            _ = show_results_r2(scaler.inverse_transform(y),
+                                scaler.inverse_transform(y_fit),
+                                opt['idArticulo'], rmse_scl, score_name='RMSE')
 
     def print_optimizer_results(self):
         for study in self.studies:

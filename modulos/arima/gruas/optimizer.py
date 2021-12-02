@@ -11,10 +11,11 @@ import threading
 import time
 import json
 import pandas as pd
+import numpy as np
 import os
 optuna.logging.disable_default_handler()
 
-TEST_SIZE = 0.2
+TEST_SIZE = 0.1
 RANDOM_STATE_TEST = 0
 
 
@@ -22,10 +23,10 @@ def ARIMA_forecasting(self, ts,  ar=2, ii=1, ma=2):
     ts, scaler = make_timeserie_arima(ts.copy())
 
     # Test 20% del total
-    mape, score_r2 = cross_validation_ts_mape_r2_ARIMA(
+    mse, score_r2 = cross_validation_ts_mape_r2_ARIMA(
         ARIMA, order=(ar, ii, ma), ts=ts, test_size=TEST_SIZE)
     results = arima_forecasting(ts, ar=ar, ii=ii, ma=ma)
-    return results, ts, score_r2, mape, scaler
+    return results, ts, score_r2, mse, scaler
 
 
 def ARIMA_score_cv(self, ts, ar=2, ii=1, ma=2):
@@ -37,9 +38,9 @@ def ARIMA_score_cv(self, ts, ar=2, ii=1, ma=2):
     ts_train.index = pd.DatetimeIndex(ts_train.index).to_period('M')
 
     # Validamos con el val 20% del total*80%
-    mape, score_r2 = cross_validation_ts_mape_r2_ARIMA(
+    mse, score_r2 = cross_validation_ts_mape_r2_ARIMA(
         ARIMA, order=(ar, ii, ma), ts=ts_train, test_size=TEST_SIZE)
-    return score_r2, mape
+    return score_r2, mse
 
 
 class ARIMAOptimizer(MLOptimizer):
@@ -50,7 +51,7 @@ class ARIMAOptimizer(MLOptimizer):
     def optuna_optimizer(self, idArticulo):
         def objective(trial):
             r_min = 0
-            r_max = 12
+            r_max = 6
             ar = trial.suggest_int('ar', 2, r_max)
             ii = trial.suggest_int('ii', r_min, 3)
             ma = trial.suggest_int('ma', r_min, r_max)
@@ -59,9 +60,9 @@ class ARIMAOptimizer(MLOptimizer):
             #     self.df_time[idArticulo], pred.apply(lambda x: round(x, 0)))
             # return score
 
-            score, mape = self.Model_score_cv(
+            score, mse = self.Model_score_cv(
                 self.df_time[idArticulo], ar, ii, ma)
-            return mape
+            return mse
 
         study = optuna.create_study(
             direction='minimize', sampler=optuna.samplers.TPESampler(seed=self.SEED))
@@ -70,10 +71,10 @@ class ARIMAOptimizer(MLOptimizer):
         self.save_results(idArticulo, study)
 
     def save_results(self, idArticulo, study):
-        results, ts, score, mape, scaler = self.Model_forecasting_process(
+        results, ts, score, mse, scaler = self.Model_forecasting_process(
             self.df_time[idArticulo], **study.best_params)
         row = {'idArticulo': idArticulo, 'hyper': study.best_params,
-               'r2_test': score, 'mape_test': mape, 'model': self.model_name}
+               'r2_test': score, 'mse_test': mse, 'model': self.model_name}
         self.results = self.results.append(row, ignore_index=True)
 
     def print_results(self):
@@ -81,7 +82,7 @@ class ARIMAOptimizer(MLOptimizer):
             self.result_path(), f'{self.model_name}.csv'))
         for opt in opts.to_dict(orient='records'):
             hyper = json.loads(opt['hyper'].replace("'", '"'))
-            results, ts, score, mape, scaler = self.Model_forecasting_process(
+            results, ts, score, mse, scaler = self.Model_forecasting_process(
                 self.df_time[opt['idArticulo']],  **hyper)
             # ts = pd.DataFrame(ts, index=ts.index)
 
@@ -90,10 +91,10 @@ class ARIMAOptimizer(MLOptimizer):
 
             ts_pred = scaler.inverse_transform(results.fittedvalues.to_frame())
             ts_pred = pd.DataFrame(ts_pred, index=ts.index)
-
+            rmse_scl = scaler.inverse_transform([[np.sqrt(mse)]])[0][0]
             _ = show_results_r2(ts,
                                 ts_pred,
-                                opt['idArticulo'], mape, score_name='MAPE')
+                                opt['idArticulo'], rmse_scl, score_name='RMSE')
 
 
 class ARIMAOptimizer_depricated:
