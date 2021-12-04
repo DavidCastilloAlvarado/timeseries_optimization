@@ -34,8 +34,9 @@ def cross_val_score_dl(model, X, y, test_size=0.2):
 
     # tf.keras.backend.clear_session()
     forecasts = []
-    model.init_model()
+    # model.init_model()
     for i_last in range(-int(test_size*len(y)), 0):
+        model.init_model()
         # if hyperparameters is not None:
         #     model = modelclass((X.iloc[0].shape[0], 1), **hyperparameters)
         # else:
