@@ -1,15 +1,14 @@
 # Time Series models Benchmark
 
-## Introduction:
+## Introducción:
 
-Create a base line where several machine learning models
-could get over the same data, using an optimization strategy with OPTUMA optimizer.
+Crear una línea base comparativa de varios modelos de machine learing sobre una misma base de datos, usando una estrategia de optimización por cada producto y modelo mediante la herramienta OPTUNA.
 
-## Models:
+## Modelos:
 
 ---
 
-We going to work with the following machine learning models.
+Trabajaremos con los diguientes modelos de machine learning
 
 1. ARIMA
 2. Regresión lineal
@@ -31,23 +30,26 @@ We going to work with the following machine learning models.
 
 ---
 
-1. Select the product with more healthy data over the time line (months)
-2. Preprocess the data according the model
+1. Seleccionar los productos con los datos más saludables y completos sobre la línea de tiempo (months)
+2. Preprocesamiento de los datos
+
+   1. Eliminar los valores ceros en los extremos de la serie de tiempo.
+   2. Estandarizar los datos de cada serie de tiempo usando x´ = (x - u)/s
+   3. Generar los N-pasos hacia el pasado para alimentar a los modelos de predicción
+
 3. Model optimization by moduls:
 
-   1. Init target model
-   2. Store hyperparámeters
-   3. Optimize by models (referencia: R2 score)
-   4. Optimization Graph
-   5. Optimization and training
+   1. Inicializar el modelo objetivo
+   2. Optimizar el modelo (referencia: MSE loss)
+   3. Validación cruzada de los datos (**entrenamiento** + **validación**)
+   4. Comparativo solo con los datos de **testeo**
+   5. Almacenar los hiperparámetros y las metricas
+   6. Imprimir gráficas de valores reales y de entrenamiento
+   7. Imprimir tabla de resultados
 
-4. comparison chart over R2 score by model and product
-5. comparison chart
+4. Comparación por mapa de calor según el MSE estandarizado por modelo y producto.
+5. Mapa de calor
 
-   1. One step ahead
+   1. Un paso hacia adelante
 
-      a. Product vs R2 - model
-
-   2. Two steps ahead
-
-      a. Product vs R2 - model
+      a. Producto vs MSE - Modelo
