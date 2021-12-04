@@ -1,0 +1,8 @@
+pandas
+optuna
+matplotlib
+sckit-learn
+statsmodels
+cvxopt
+tensorflow
+xgboost
