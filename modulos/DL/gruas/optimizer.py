@@ -104,12 +104,17 @@ class DLOptimizer:
             #     self.df_time[idArticulo], n_lags, max_depth, random_state)
             # score = r2_score(
             #     self.df_time[[idArticulo]], pred.apply(lambda x: round(x, 0)))
-            r2, mse = DL_score_cv(self.df_time[idArticulo],
-                                  n_lags=n_lags,
-                                  random_state=random_state,
-                                  n_epochs=n_epochs,
-                                  optimizer=opt,
-                                  learning_rate=learning_rate)
+            try:
+                r2, mse = DL_score_cv(self.df_time[idArticulo],
+                                      n_lags=n_lags,
+                                      random_state=random_state,
+                                      n_epochs=n_epochs,
+                                      optimizer=opt,
+                                      learning_rate=learning_rate)
+            except Exception as e:
+                print(e)
+                score = -100.0
+                mse = 100.0
             # mse = mean_squared_error(
             #     self.df_time[[idArticulo]], pred.apply(lambda x: round(x, 0)))
             return mse

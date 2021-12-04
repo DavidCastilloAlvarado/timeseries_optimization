@@ -162,8 +162,13 @@ class DTOptimizer(MLOptimizer):
             max_depth = trial.suggest_int('max_depth', r_min, r_max)
             random_state = trial.suggest_int('random_state', 100, 3000)
             ccp_alpha = trial.suggest_uniform('ccp_alpha', 0.01, .1)
-            score, mse = self.Model_score_cv(
-                self.df_time[idArticulo], n_lags, max_depth, random_state, ccp_alpha)
+            try:
+                score, mse = self.Model_score_cv(
+                    self.df_time[idArticulo], n_lags, max_depth, random_state, ccp_alpha)
+            except Exception as e:
+                print(e)
+                score = -100.0
+                mse = 100.0
             return mse
 
         study = optuna.create_study(
@@ -189,12 +194,17 @@ class XGBOptimizer(MLOptimizer):
             random_state = trial.suggest_int('random_state', 100, 3000)
             gamma = trial.suggest_uniform('gamma', 0.0, 1.0)
             n_estimators = trial.suggest_int('n_estimators', 1, 10)
-            score, mse = self.Model_score_cv(self.df_time[idArticulo],
-                                             n_lags=n_lags,
-                                             max_depth=max_depth,
-                                             random_state=random_state,
-                                             gamma=gamma,
-                                             n_estimators=n_estimators)
+            try:
+                score, mse = self.Model_score_cv(self.df_time[idArticulo],
+                                                 n_lags=n_lags,
+                                                 max_depth=max_depth,
+                                                 random_state=random_state,
+                                                 gamma=gamma,
+                                                 n_estimators=n_estimators)
+            except Exception as e:
+                print(e)
+                score = -100.0
+                mse = 100.0
             return mse
 
         study = optuna.create_study(

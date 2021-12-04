@@ -1,9 +1,8 @@
-idArticulo,hyper,r2,model
-arandel,"{'n_lags': 2, 'max_depth': 1, 'random_state': 2710}",-0.40356922427074515,DT
-filtrodeair,"{'n_lags': 1, 'max_depth': 1, 'random_state': 753}",-0.2510564542854464,DT
-filtrodepresio,"{'n_lags': 2, 'max_depth': 1, 'random_state': 2710}",-0.6446778611790578,DT
-bateriascanrec,"{'n_lags': 2, 'max_depth': 5, 'random_state': 106}",-0.0619641165057805,DT
-soport,"{'n_lags': 2, 'max_depth': 5, 'random_state': 106}",-0.0005809364520410587,DT
-filtroderetorn,"{'n_lags': 2, 'max_depth': 1, 'random_state': 2710}",-0.42430453556687786,DT
-pern,"{'n_lags': 2, 'max_depth': 3, 'random_state': 1173}",-0.1047160809220061,DT
-tuerc,"{'n_lags': 2, 'max_depth': 4, 'random_state': 943}",-0.040684791294152346,DT
+idArticulo,hyper,r2_test,mse_test,model
+arandel,"{'n_lags': 6, 'max_depth': 6, 'random_state': 966, 'ccp_alpha': 0.08325415377059385}",-1.278116343490305,0.4708924437987542,DT
+bateriascanrec,"{'n_lags': 3, 'max_depth': 4, 'random_state': 1935, 'ccp_alpha': 0.0478203984896905}",-12.795611834319534,3.00312638570221,DT
+filtrodepresio,"{'n_lags': 8, 'max_depth': 8, 'random_state': 655, 'ccp_alpha': 0.017828459388548143}",-2.565104166666666,0.1320170953329862,DT
+pern,"{'n_lags': 10, 'max_depth': 8, 'random_state': 1748, 'ccp_alpha': 0.03564701729313271}",,0.5865227031716955,DT
+filtroderetorn,"{'n_lags': 7, 'max_depth': 6, 'random_state': 2993, 'ccp_alpha': 0.017758894057659583}",-2.8421378293690754e+33,8.758013362652228,DT
+tuerc,"{'n_lags': 9, 'max_depth': 6, 'random_state': 1922, 'ccp_alpha': 0.015306587775339352}",-5.249433106575964,3.0821656469969074,DT
+soport,"{'n_lags': 10, 'max_depth': 9, 'random_state': 161, 'ccp_alpha': 0.02755875018904798}",-1.0,0.635917566241413,DT

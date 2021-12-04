@@ -59,9 +59,13 @@ class ARIMAOptimizer(MLOptimizer):
             # score = r2_score(
             #     self.df_time[idArticulo], pred.apply(lambda x: round(x, 0)))
             # return score
-
-            score, mse = self.Model_score_cv(
-                self.df_time[idArticulo], ar, ii, ma)
+            try:
+                score, mse = self.Model_score_cv(
+                    self.df_time[idArticulo], ar, ii, ma)
+            except Exception as e:
+                print(e)
+                score = -100.0
+                mse = 100.0
             return mse
 
         study = optuna.create_study(

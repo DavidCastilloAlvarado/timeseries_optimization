@@ -59,8 +59,14 @@ class LROptimizer(MLOptimizer):
             r_min = 2
             r_max = 12
             n_lags = trial.suggest_int('n_lags', r_min, r_max)
-            score, mape = self.Model_score_cv(self.df_time[idArticulo], n_lags)
-            return mape
+            try:
+                score, mse = self.Model_score_cv(
+                    self.df_time[idArticulo], n_lags)
+            except Exception as e:
+                print(e)
+                score = -100.0
+                mse = 100.0
+            return mse
 
         study = optuna.create_study(
             direction='minimize', sampler=optuna.samplers.TPESampler(seed=self.SEED))

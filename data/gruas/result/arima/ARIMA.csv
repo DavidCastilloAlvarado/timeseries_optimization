@@ -1,0 +1,6 @@
+idArticulo,hyper,r2_test,mse_test,model
+bateriascanrec,"{'ar': 2, 'ii': 0, 'ma': 2}",-0.23800850858365052,0.2694984508481415,ARIMA
+filtrodepresio,"{'ar': 3, 'ii': 0, 'ma': 2}",-1.806202753743014,0.11690403955639042,ARIMA
+filtroderetorn,"{'ar': 5, 'ii': 2, 'ma': 2}",-1.3056963486793385e+32,0.40234875139177845,ARIMA
+soport,"{'ar': 2, 'ii': 1, 'ma': 0}",-0.5000000000000002,0.42394504416094203,ARIMA
+tuerc,"{'ar': 4, 'ii': 0, 'ma': 1}",0.06480937725605818,0.4099802848474197,ARIMA
