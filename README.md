@@ -48,8 +48,23 @@ Trabajaremos con los diguientes modelos de machine learning
    7. Imprimir tabla de resultados
 
 4. Comparación por mapa de calor según el MSE estandarizado por modelo y producto.
-5. Mapa de calor
+5. Gráficas de Rendimiento
 
    1. Un paso hacia adelante
 
       a. Producto vs MSE - Modelo
+
+   2. Autocorrelación con gráficas aCF
+
+      b. ACF por producto
+
+# Referencias:
+
+1. [Funcion de perdida MSE](https://scikit-learn.org/stable/modules/model_evaluation.html#:~:text=3.3.4.4.%20Mean%20squared%20error)
+2. [score R2](https://scikit-learn.org/stable/modules/model_evaluation.html#:~:text=3.3.4.8.%20R%C2%B2%20score%2C%20the%20coefficient%20of%20determination)
+3. [Optuna - ejemplo](https://optuna.readthedocs.io/en/stable/reference/generated/optuna.trial.Trial.html#optuna.trial.Trial.suggest_int)
+4. [Redes Neuronales LSTM - tensorflow](https://www.tensorflow.org/api_docs/python/tf/keras/layers/LSTM)
+5. [Series de tiempo - entrenamiento y testeo](https://otexts.com/fpp2/accuracy.html)
+6. [White noise](https://otexts.com/fpp2/wn.html)
+7. [Autocorrelación](https://otexts.com/fpp2/autocorrelation.html)
+8. [Ljung–Box test](https://en.wikipedia.org/wiki/Ljung%E2%80%93Box_test)
