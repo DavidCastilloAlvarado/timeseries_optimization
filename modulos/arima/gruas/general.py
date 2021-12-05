@@ -61,7 +61,7 @@ def show_optimizer_results(data, idArticulo='Place your idArticulo', color='m'):
                  label="real",
                  linewidth=.5)
     plt.title(str(idArticulo).upper() + " - optimization")
-    plt.ylabel("r2 score")
+    plt.ylabel("MSE Loss")
     plt.xlabel("# Iteration")
     plt.grid(True)
     plt.show(block=False)

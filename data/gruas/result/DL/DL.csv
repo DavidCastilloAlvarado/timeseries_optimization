@@ -1,9 +1,8 @@
-idArticulo,hyper,r2,model
-arandel,"{'n_lags': 1, 'random_state': 2548, 'optimizer': 'SGD', 'learning_rate': 0.00041000000000000005}",-0.12719045877456664,DL
-bateriascanrec,"{'n_lags': 1, 'random_state': 2548, 'optimizer': 'SGD', 'learning_rate': 0.00041000000000000005}",-156746.99168782233,DL
-filtrodeair,"{'n_lags': 1, 'random_state': 2700, 'optimizer': 'SGD', 'learning_rate': 0.0008100000000000001}",0.17455761432647704,DL
-filtrodepresio,"{'n_lags': 1, 'random_state': 2700, 'optimizer': 'SGD', 'learning_rate': 0.0008100000000000001}",0.2566004753112793,DL
-filtroderetorn,"{'n_lags': 2, 'random_state': 2613, 'optimizer': 'SGD', 'learning_rate': 0.00051}",0.11467217206954956,DL
-pern,"{'n_lags': 1, 'random_state': 2548, 'optimizer': 'SGD', 'learning_rate': 0.00041000000000000005}",-6718.74453086853,DL
-soport,"{'n_lags': 1, 'random_state': 2548, 'optimizer': 'SGD', 'learning_rate': 0.00041000000000000005}",-0.14046356678009034,DL
-tuerc,"{'n_lags': 1, 'random_state': 2548, 'optimizer': 'SGD', 'learning_rate': 0.00041000000000000005}",-6716.394677305221,DL
+idArticulo,hyper,r2_test,mse_test,model
+arandel,"{'n_lags': 9, 'random_state': 106, 'optimizer': 'RMSprop', 'learning_rate': 3.0000000000000004e-05, 'n_epochs': 100}",,0.4941050049246606,DL
+filtrodepresio,"{'n_lags': 7, 'random_state': 2564, 'optimizer': 'Adam', 'learning_rate': 8e-05, 'n_epochs': 100}",-55.04142511296526,2.0752342192155884,DL
+bateriascanrec,"{'n_lags': 12, 'random_state': 1458, 'optimizer': 'RMSprop', 'learning_rate': 0.0001, 'n_epochs': 150}",0.5776399111528969,0.10343512379929054,DL
+soport,"{'n_lags': 7, 'random_state': 1396, 'optimizer': 'SGD', 'learning_rate': 6e-05, 'n_epochs': 200}",-0.07716049382716039,0.3424926398429832,DL
+pern,"{'n_lags': 3, 'random_state': 455, 'optimizer': 'Adam', 'learning_rate': 0.0001, 'n_epochs': 100}",-0.19321338002656674,0.9525691699604742,DL
+tuerc,"{'n_lags': 2, 'random_state': 733, 'optimizer': 'SGD', 'learning_rate': 5e-05, 'n_epochs': 150}",-0.6558249239516192,0.7259007495042161,DL
+filtroderetorn,"{'n_lags': 2, 'random_state': 2845, 'optimizer': 'RMSprop', 'learning_rate': 0.0001, 'n_epochs': 150}",-1.4844515364964728e+32,0.4574319464208318,DL

@@ -1,9 +1,7 @@
-idArticulo,hyper,r2,model
-bateriascanrec,{'n_lags': 2},-0.11247094875278392,LR
-filtrodepresio,{'n_lags': 2},-0.6659187066517466,LR
-arandel,{'n_lags': 1},-0.28620522955788275,LR
-filtrodeair,{'n_lags': 1},-0.2889630745487265,LR
-filtroderetorn,{'n_lags': 1},-0.23047230057965007,LR
-tuerc,{'n_lags': 2},-0.11463189592077179,LR
-pern,{'n_lags': 1},-0.08102302532178565,LR
-soport,{'n_lags': 2},-0.022109950429329416,LR
+idArticulo,hyper,r2_test,mse_test,model
+arandel,{'n_lags': 5},-0.14102946352646994,0.3089683377325405,LR
+filtrodeair,{'n_lags': 4},-1.9490390928303216,1.810549511074398,LR
+bateriascanrec,{'n_lags': 5},-0.035136389310720606,0.2253358126390684,LR
+filtrodepresio,{'n_lags': 2},-34.94476659058489,1.4974286550556832,LR
+pern,{'n_lags': 4},-0.40446501578464567,0.8409120887674237,LR
+soport,{'n_lags': 2},-0.9434920829578659,0.3433057653900056,LR

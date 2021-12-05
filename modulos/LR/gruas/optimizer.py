@@ -39,10 +39,10 @@ def LR_score_cv(self, ts, n_lags, cv=6):
     model = LinearRegression()
 
     # Validamos con el val 20% del total*80%
-    mape, score_r2 = cross_validation_ts_mape_r2(
+    mse, score_r2 = cross_validation_ts_mape_r2(
         model, X_train, y_train, test_size=TEST_SIZE)
 
-    return score_r2, mape
+    return score_r2, mse
 
 
 # Operaciones en multi hilo
@@ -59,8 +59,14 @@ class LROptimizer(MLOptimizer):
             r_min = 2
             r_max = 12
             n_lags = trial.suggest_int('n_lags', r_min, r_max)
-            score, mape = self.Model_score_cv(self.df_time[idArticulo], n_lags)
-            return mape
+            try:
+                score, mse = self.Model_score_cv(
+                    self.df_time[idArticulo], n_lags)
+            except Exception as e:
+                print(e)
+                score = -100.0
+                mse = 100.0
+            return mse
 
         study = optuna.create_study(
             direction='minimize', sampler=optuna.samplers.TPESampler(seed=self.SEED))
